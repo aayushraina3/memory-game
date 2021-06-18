@@ -1,11 +1,26 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;
     height: 300px;
-    width: 400px;
+    width: 416px;
 }
 
 img {
+    margin: 2px;
     height: 100px;
     width: 100px;
 }
