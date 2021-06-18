@@ -59,23 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function createBoard() {
         for(let i = 0; i < cardArray.length; i++){
-            let card = document.createElement('img')
-            card.setAttribute('src', 'images/blank.jpeg')
-            card.setAttribute('data-id', i)
-            card.addEventListener('click', flipcard)
             
+            let card = createFlipCard(i); // default and array[i] image added to card
+            card.setAttribute('data-id', i);
+            card.addEventListener('click', flipcard);
+
             // APPEND TO GRID
-            grid.appendChild(card)
+            grid.appendChild(card);
         }
     }
 
     function flipcard() {
-        let cardID = this.getAttribute('data-id')
-        cardSelected.push(cardArray[cardID].name)
-        cardSelectedID.push(cardID)
+        // flip card
+        this.childNodes[0].style.transform = "rotateY(180deg)";
         
-        // DISPLAY IMAGE AT THIS LOCATION
-        this.setAttribute('src', cardArray[cardID].img)
+        let cardID = this.getAttribute('data-id');
+        cardSelected.push(cardArray[cardID].name);
+        cardSelectedID.push(cardID);
 
         if(cardSelected.length === 2){
             setTimeout(checkForMatch, 500)
@@ -83,21 +83,62 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function checkForMatch(){
-        let cards = document.querySelectorAll('img')
+        let cards = document.querySelectorAll('.flipCard')
         if(cardSelected[0] === cardSelected[1]){
             alert('Correct')
-            cards[cardSelectedID[0]].setAttribute('src', 'images/white.png')
-            cards[cardSelectedID[1]].setAttribute('src', 'images/white.png')
+            let correctImg1 = document.createElement('img');
+            correctImg1.setAttribute('src', 'images/check.png');
+
+            let correctImg2 = document.createElement('img');
+            correctImg2.setAttribute('src', 'images/check.png');
+            
+            let targetFront1 = cards[cardSelectedID[0]].childNodes[0].childNodes[0];
+            targetFront1.replaceChild(correctImg1, targetFront1.childNodes[0]);
+
+            let targetFront2 = cards[cardSelectedID[1]].childNodes[0].childNodes[0];
+            targetFront2.replaceChild(correctImg2, targetFront2.childNodes[0]);
+
+            cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
+            cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
             cardsWon.push(cardSelected)
         }else {
             alert('try again')
-            cards[cardSelectedID[0]].setAttribute('src', 'images/blank.jpeg')
-            cards[cardSelectedID[1]].setAttribute('src', 'images/blank.jpeg')
+            cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
+            cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
         }
         
         cardSelected = []
         cardSelectedID = []
         if(cardsWon.length == cardArray.length/2) alert ('Congrats. Game Won!')
+    }
+
+    function createFlipCard(idx){
+        const flipCard = document.createElement('div');
+        flipCard.setAttribute('class', 'flipCard');
+
+        const flipCardInner = document.createElement('div');
+        flipCardInner.setAttribute('class', 'flipCardInner');
+
+        const flipCardFront = document.createElement('div');
+        flipCardFront.setAttribute('class', 'flipCardFront');
+
+        const flipCardBack = document.createElement('div');
+        flipCardBack.setAttribute('class', 'flipCardBack');
+
+        let defaultImg = document.createElement('img');
+        defaultImg.setAttribute('src', 'images/blank.jpeg');
+
+        cardImg = document.createElement('img');
+        cardImg.setAttribute('src', cardArray[idx].img);
+        
+        flipCardFront.appendChild(defaultImg);
+        flipCardBack.appendChild(cardImg);
+        flipCardInner.appendChild(flipCardFront);
+        flipCardInner.appendChild(flipCardBack);
+        
+        flipCard.appendChild(flipCardInner);
+
+        return flipCard;
     }
 
     createBoard()
