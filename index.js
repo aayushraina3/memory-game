@@ -101,6 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
             cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
+
+            cards[cardSelectedID[0]].removeEventListener("click", flipcard);
+            cards[cardSelectedID[1]].removeEventListener("click", flipcard);
+
             cardsWon.push(cardSelected);
         }else {
             // alert('try again')
