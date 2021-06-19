@@ -85,7 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function checkForMatch(){
         let cards = document.querySelectorAll('.flipCard')
         if(cardSelected[0] === cardSelected[1]){
-            alert('Correct')
+            // alert('Correct')
+            notify("Correct choice! :)");
             let correctImg1 = document.createElement('img');
             correctImg1.setAttribute('src', 'images/check.png');
 
@@ -100,16 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
             cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
-            cardsWon.push(cardSelected)
+            cardsWon.push(cardSelected);
         }else {
-            alert('try again')
+            // alert('try again')
+            notify("try again :(");
             cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
             cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
         }
         
         cardSelected = []
         cardSelectedID = []
-        if(cardsWon.length == cardArray.length/2) alert ('Congrats. Game Won!')
+        if(cardsWon.length == cardArray.length/2) notify('Congrats. Game Won!')
     }
 
     function createFlipCard(idx){
@@ -142,4 +144,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createBoard()
+
+    function notify(message){
+        let notification = document.querySelector(".notification");
+        notification.innerHTML = message;
+        notification.classList.add("notification-pop");
+        
+        setTimeout(() => {
+            notification.innerHTML="";
+            notification.classList.remove("notification-pop");
+        }, 2000);
+    }
 })
