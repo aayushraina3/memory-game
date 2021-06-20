@@ -23,7 +23,7 @@ html, body{
     display: flex;
     flex-wrap: wrap;
     height: 300px;
-    width: 400px;
+    width: 425px;
 }
 
 img {
@@ -37,6 +37,7 @@ img {
     height: 100px;
     width: 100px;
     perspective: 1000px;
+    margin: 3px;
 }
 
 .flipCardInner{
@@ -65,9 +66,9 @@ img {
 }
 
 .notification-pop{
-    background-color: aqua;
+    background-color: rgb(236, 168, 22);
     border-radius: 10px;
-    padding: 10px;
+    padding: 10px 40px;
     animation-name: notify;
     animation-duration: 2s;
 }

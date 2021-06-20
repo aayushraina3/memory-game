@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function flipcard() {
         // flip card
         this.childNodes[0].style.transform = "rotateY(180deg)";
+        this.removeEventListener('click', flipcard);
         
         let cardID = this.getAttribute('data-id');
         cardSelected.push(cardArray[cardID].name);
@@ -111,6 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
             notify("try again :(");
             cards[cardSelectedID[0]].childNodes[0].style.transform = "rotateY(0deg)";
             cards[cardSelectedID[1]].childNodes[0].style.transform = "rotateY(0deg)";
+            
+            cards[cardSelectedID[0]].addEventListener('click', flipcard);
+            cards[cardSelectedID[1]].addEventListener('click', flipcard);
         }
         
         cardSelected = []
