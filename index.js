@@ -89,10 +89,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // alert('Correct')
             notify("Correct choice! :)");
             let correctImg1 = document.createElement('img');
-            correctImg1.setAttribute('src', 'images/check.png');
+            correctImg1.setAttribute('src', 'images/check-mark.png');
 
             let correctImg2 = document.createElement('img');
-            correctImg2.setAttribute('src', 'images/check.png');
+            correctImg2.setAttribute('src', 'images/check-mark.png');
             
             let targetFront1 = cards[cardSelectedID[0]].childNodes[0].childNodes[0];
             targetFront1.replaceChild(correctImg1, targetFront1.childNodes[0]);
@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
         flipCardBack.setAttribute('class', 'flipCardBack');
 
         let defaultImg = document.createElement('img');
-        defaultImg.setAttribute('src', 'images/blank.jpeg');
+        defaultImg.setAttribute('src', 'images/circle.png');
 
         cardImg = document.createElement('img');
         cardImg.setAttribute('src', cardArray[idx].img);
