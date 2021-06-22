@@ -119,7 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         cardSelected = []
         cardSelectedID = []
-        if(cardsWon.length == cardArray.length/2) notify('Congrats. Game Won!')
+        if(cardsWon.length == cardArray.length/2){
+            notify(`Congrats ${player}. Game Won!`);
+        }
     }
 
     function createFlipCard(idx){
@@ -154,6 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createBoard()
 
     function notify(message){
+        console.log(message);
         let notification = document.querySelector(".notification");
         notification.innerHTML = message;
         notification.classList.add("notification-pop");
@@ -161,6 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             notification.innerHTML="";
             notification.classList.remove("notification-pop");
-        }, 2000);
+        }, 600);
     }
+
 })
+
+var player = "";
+
+function startGame(){
+    player = document.getElementById("playerName").value;
+    document.querySelector(".overlay-wrapper").style.display = "none";
+}

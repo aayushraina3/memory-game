@@ -5,23 +5,29 @@ html, body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+body{
+    background-color: rgb(22, 104, 110);
+    padding: 20px;
+}
+
 .wrapper{
-    height: 90%;
+    min-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px;
     background: rgb(9,153,162);
     background: linear-gradient(90deg, rgba(9,153,162,1) 0%, rgba(18,219,221,1) 97%);
-    border-radius: 20px;
+}
+
+.heading-wrapper{
+    color: #fff;
+    margin-bottom: 40px;
 }
 
 .heading{
     font-size: 60px;
     font-weight: bold;
-    margin-bottom: 40px;
-    color: #fff;
 }
 
 .grid {
@@ -32,7 +38,6 @@ html, body{
 }
 
 img {
-    /* margin: 2px; */
     height: 100px;
     width: 100px;
 }
@@ -75,7 +80,7 @@ img {
     border-radius: 10px;
     padding: 10px 40px;
     animation-name: notify;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 
 
@@ -90,7 +95,7 @@ img {
 }
 
 @media screen and (max-width: 420px) {
-    .heading{
+    .heading-wrapper{
         padding-left: 16px;
     }
 
@@ -108,4 +113,18 @@ img {
         width: 65px;
         height: 65px;
     }
+}
+
+.overlay-wrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.603);
 }
