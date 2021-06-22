@@ -173,5 +173,9 @@ var player = "";
 
 function startGame(){
     player = document.getElementById("playerName").value;
-    document.querySelector(".overlay-wrapper").style.display = "none";
+    if(player !== ""){
+        document.querySelector(".overlay-wrapper").style.display = "none";
+    }else{
+        alert("please enter your alias")
+    }
 }

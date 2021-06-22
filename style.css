@@ -23,6 +23,7 @@ body{
 .heading-wrapper{
     color: #fff;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 .heading{
@@ -97,6 +98,7 @@ img {
 @media screen and (max-width: 420px) {
     .heading-wrapper{
         padding-left: 16px;
+        text-align: left;
     }
 
     .grid{
@@ -126,5 +128,18 @@ img {
     align-items: center;
     min-height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.603);
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#playerName{
+    height: 26px;
+    border-radius: 8px;
+    border: 3px solid rgb(22, 104, 110);
+    outline: none;
+}
+
+.start-button{
+    height: 30px;
+    border-radius: 8px;
+    background-color:rgb(73, 198, 207);
 }
