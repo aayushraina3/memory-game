@@ -1,23 +1,25 @@
-html, body{
-    height: 100%;
+*{
     margin: 0;
     padding: 0;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body{
     background-color: rgb(22, 104, 110);
-    padding: 20px;
 }
 
 .wrapper{
-    min-height: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background: rgb(9,153,162);
-    background: linear-gradient(90deg, rgba(9,153,162,1) 0%, rgba(18,219,221,1) 97%);
+    background: linear-gradient(180deg, rgba(9,153,162,1) 0%, rgba(18,219,221,1) 97%);
 }
 
 .heading-wrapper{
@@ -64,7 +66,6 @@ img {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
 }
 
@@ -101,6 +102,29 @@ img {
         text-align: left;
     }
 
+    .name-wrapper{
+        background-color: rgb(89, 234, 245);
+        padding: 10px 15px;
+        border-radius: 6px;
+    }
+
+    #playerName{
+        height: 40px;
+        width: 165px;
+        border-radius: 6px;
+        border: 1px solid white;
+        outline: none;
+        padding-left: 5px;
+    }
+    
+    .start-button{
+        height: 40px;
+        width: 90px;
+        border-radius: 6px;
+        background-color:rgb(73, 198, 207);
+        border: 1px solid white;
+    }
+
     .grid{
         width: 284px;
         height: 213px;
@@ -128,18 +152,30 @@ img {
     align-items: center;
     min-height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.80);
+}
+
+.name-wrapper{
+    background-color: rgb(89, 234, 245);
+    padding: 15px 20px;
+    border-radius: 6px;
 }
 
 #playerName{
-    height: 26px;
-    border-radius: 8px;
-    border: 3px solid rgb(22, 104, 110);
+    height: 50px;
+    width: 175px;
+    border-radius: 6px;
+    border: none;
     outline: none;
+    padding-left: 5px;
+    font-size: 16px;
 }
 
 .start-button{
-    height: 30px;
-    border-radius: 8px;
+    height: 50px;
+    width: 100px;
+    border-radius: 6px;
     background-color:rgb(73, 198, 207);
+    border: 1px solid white;
+    font-size: 16px;
 }
