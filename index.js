@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
     cardArray.sort(() => 0.5 - Math.random())
 
     const grid = document.querySelector('.grid')
-    var cardSelected = []
-    var cardSelectedID = []
-    var cardsWon = []
+    let cardSelected = []
+    let cardSelectedID = []
+    let cardsWon = []
 
     function createBoard() {
         for(let i = 0; i < cardArray.length; i++){
@@ -120,7 +120,13 @@ document.addEventListener('DOMContentLoaded', () => {
         cardSelected = []
         cardSelectedID = []
         if(cardsWon.length == cardArray.length/2){
-            notify(`Congrats ${player}. Game Won!`);
+            // notify(`Congrats ${player}. Game Won!`);
+            document.querySelector(".overlay-wrapper").style.display = "flex";
+            document.querySelector(".name-wrapper").style.display = "none";
+            document.querySelector(".heading-wrapper").style.display = "none";
+
+            document.querySelector(".win-wrapper").style.display = "block";
+            document.querySelector(".win-text").innerHTML = `Well Done, ${player}!`;
         }
     }
 
@@ -169,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 })
 
-var player = "";
+let player = "";
 
 function startGame(){
     player = document.getElementById("playerName").value;
@@ -178,4 +184,8 @@ function startGame(){
     }else{
         alert("please enter your alias")
     }
+}
+
+function reload(){
+    window.location.reload();
 }

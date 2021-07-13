@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -17,6 +18,13 @@
             <div class="name-wrapper dynamic-shadow">
                 <input type="text" id="playerName" placeholder="Player name">
                 <button onclick="startGame()" class="start-button">Enter Game</button>
+            </div>
+            <div class="win-wrapper">
+                <div class="win-image"><img src="images/star.png" alt=""></div>
+                <div class="win-text"></div>
+                <div class="new-game">
+                    <button onclick="reload()" class="new-game-btn">Play Again <i class="fas fa-redo-alt"></i></button>
+                </div>
             </div>
         </div>
         
